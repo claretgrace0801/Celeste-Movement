@@ -7,10 +7,12 @@ public class Collision : MonoBehaviour
 
     [Header("Layers")]
     public LayerMask groundLayer;
+    // public LayerMask levelEndLayer;
 
     [Space]
 
     public bool onGround;
+    // public bool onLevelEnd;
     public bool onWall;
     public bool onRightWall;
     public bool onLeftWall;
@@ -39,6 +41,7 @@ public class Collision : MonoBehaviour
 
         onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
         onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        // onLevelEnd = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, levelEndLayer);
 
         wallSide = onRightWall ? -1 : 1;
     }

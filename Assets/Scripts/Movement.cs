@@ -61,6 +61,9 @@ public class Movement : MonoBehaviour
         Walk(dir);
         anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
+        // if(coll.onLevelEnd)
+        //     Debug.Log("at level end");
+
         if (coll.onWall && Input.GetButton("Fire3") && canMove)
         {
             if(side != coll.wallSide)
@@ -230,7 +233,7 @@ public class Movement : MonoBehaviour
     private void WallSlide()
     {
         if(coll.wallSide != side)
-         anim.Flip(side * -1);
+            anim.Flip(side * -1);
 
         if (!canMove)
             return;
